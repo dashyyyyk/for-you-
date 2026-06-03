@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="theme-color" content="#faf0e6">
+    <title>Дарья & Андрей | Свадебное приглашение</title>
+    <!-- Элегантные и нежные шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: #faf4ed;
+            font-family: 'Quicksand', sans-serif;
+            color: #4a3b32;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        h2 {
+            font-size: 2.3rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #9b7b6e;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 2px;
+            background: #decbbf;
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* анимация появления */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero секция с фото */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: #f7ede6;
+            padding: 2rem 1rem;
+        }
+        .hero-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            pointer-events: none;
+            filter: brightness(0.98) contrast(1.05);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            background: rgba(255, 252, 248, 0.88);
+            backdrop-filter: blur(6px);
+            border-radius: 56px;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.08);
+        }
+        .hero-sub {
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: #b29182;
+        }
+        .hero-names {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0.75rem 0;
+            line-height: 1.2;
+            color: #5e3e31;
+        }
+        .ampersand {
+            font-size: 2.8rem;
+            color: #cfb5a5;
+            margin: 0 0.2rem;
+        }
+        .hero-date {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            background: rgba(255,245,235,0.7);
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 60px;
+            color: #6d4c3c;
+        }
+        .hero-location {
+            font-size: 1rem;
+            margin-top: 8px;
+            color: #8b6b5b;
+        }
+        .btn-group {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.25s;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .btn-primary {
+            background: #cfb5a5;
+            color: #3e2a21;
+            box-shadow: 0 5px 12px rgba(160, 120, 100, 0.2);
+        }
+        .btn-primary:active {
+            transform: scale(0.96);
+        }
+        .btn-outline {
+            border: 1.5px solid #cfb5a5;
+            background: transparent;
+            color: #5e3e31;
+        }
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.6rem;
+            color: #c4a392;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 5;
+        }
+        @keyframes bounce {
+            0%,100%{ transform: translateX(-50%) translateY(0); }
+            50%{ transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* секции */
+        section {
+            padding: 70px 0;
+        }
+        .section-white {
+            background: #ffffff;
+        }
+        .section-soft {
+            background: #fef8f3;
+        }
+        .text-center {
+            text-align: center;
+        }
+
+        /* карточки */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 32px;
+            padding: 28px 18px;
+            text-align: center;
+            box-shadow: 0 12px 28px -10px rgba(0,0,0,0.04);
+            transition: 0.2s;
+            border: 1px solid #f0e2da;
+        }
+        .card i {
+            font-size: 2.5rem;
+            color: #cfb5a5;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #7d5a48;
+        }
+        .desc-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #5f4c40;
+        }
+        .gift-note {
+            background: #faf0ea;
+            border-radius: 28px;
+            padding: 18px;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* форма (обновлённая) */
+        .custom-form {
+            max-width: 700px;
+            margin: 30px auto 0;
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            border-radius: 48px;
+            padding: 36px 30px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.06);
+            border: 1px solid #f0e2da;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #7a5a4a;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 20px;
+            font-family: 'Quicksand', sans-serif;
+            border: 1px solid #eedcd5;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            background: #fffcf9;
+            transition: 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #cfb5a5;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(207,181,165,0.2);
+        }
+        textarea {
+            border-radius: 28px;
+            resize: vertical;
+        }
+        .btn-submit {
+            background: #cfb5a5;
+            color: #3e2a21;
+            width: 100%;
+            padding: 14px;
+            font-weight: 700;
+            border-radius: 60px;
+            font-size: 1rem;
+        }
+        .form-message {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(255,252,248,0.95);
+            backdrop-filter: blur(6px);
+            border-radius: 60px;
+            padding: 8px 16px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            border: 1px solid #eedbd4;
+        }
+        .music-btn {
+            background: #cfb5a5;
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #3e2a21;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        footer {
+            background: #e6d9d1;
+            color: #5e4a3d;
+            padding: 40px 0 30px;
+            text-align: center;
+        }
+        @media (max-width: 650px) {
+            .hero-names {
+                font-size: 2.2rem;
+            }
+            .ampersand {
+                font-size: 1.9rem;
+            }
+            h2 {
+                font-size: 1.9rem;
+            }
+            .custom-form {
+                padding: 28px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO с фото (замените ссылку на свою) -->
+    <div class="hero" id="home">
+        <img class="hero-bg-img" src="https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/ArqjDJw5tL5KMA" alt="Счастливая пара">
+        <div class="hero-content fade-up">
+            <div class="hero-sub">с любовью, приглашаем</div>
+            <h1 class="hero-names">
+                Дарья <span class="ampersand">&</span> Андрей
+            </h1>
+            <div class="hero-date">
+                <i class="fas fa-calendar-alt"></i> 27 июня 2026
+            </div>
+            <div class="hero-location">
+                <i class="fas fa-map-marker-alt"></i> пер. Рабочий, д.25, г. Ханты-Мансийск
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" id="rsvpScrollBtn"><i class="fas fa-envelope"></i> Подтвердить присутствие</button>
+            </div>
+        </div>
+        <div class="scroll-down" id="scrollDown">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+
+    <!-- История / welcome -->
+    <section class="section-white">
+        <div class="container text-center">
+            <div class="fade-up">
+                <h2>Дорогие гости!</h2>
+                <p style="max-width: 680px; margin: 1rem auto 0; font-size: 1.1rem;">Мы бесконечно рады, что вы будете рядом в этот важный день. Ваша поддержка и тепло делают нашу историю ещё более счастливой. Ждём вас, чтобы вместе создать незабываемые воспоминания!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Что ждёт гостей (вместо программы) + дресс-код + подарки -->
+    <section class="section-soft">
+        <div class="container">
+            <div class="text-center fade-up">
+                <h2>Что вас ждёт</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="card fade-up">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Атмосфера</h3>
+                    <div class="desc-text">Уютная посиделка на природе, музыка, душевные тосты и танцы до утра. Мы создадим пространство любви и радости, где каждый почувствует себя частью большого праздника.</div>
+                </div>
+                <div class="card fade-up">
+                    <i class="fas fa-glass-cheers"></i>
+                    <h3>Гастрономия</h3>
+                    <div class="desc-text">Фуршет с закусками, горячим и салатами. Учтем все ваши пожелания в еде и напитках — просто отметьте в форме, которая будет ниже.</div>
+                </div>
+                <div class="card fade-up">
+                    <i class="fas fa-music"></i>
+                    <h3>Музыка и танцы</h3>
+                    <div class="desc-text">Конкурсы, музыка, танцы. Мы соберём плейлист из ваших любимых песен — не забудьте указать их ниже!</div>
+                </div>
+            </div>
+            <div class="cards-grid" style="margin-top: 20px;">
+                <div class="card fade-up">
+                    <i class="fas fa-vest"></i>
+                    <h3>Дресс-код</h3>
+                    <div class="desc-text"><br>Выбор наряда оставляем на ваше усмотрение. Учтите, что придется много танцевать, позаботьтесь о комфортной для вас обуви.</div>
+                </div>
+                <div class="card fade-up">
+                    <i class="fas fa-gift"></i>
+                    <h3>Пожелания по подаркам</h3>
+                    <div class="desc-text">Ваше присутствие — главный подарок.❤️</div>
+                    <div class="gift-note"><i class="fas fa-heart"></i> Открытки с пожеланиями от вас приветствуются!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Новая форма RSVP (без почты и количества гостей) -->
+    <section class="section-white" id="rsvp">
+        <div class="container text-center">
+            <div class="fade-up">
+                <h2>Подтвердите присутствие</h2>
+                <p>Нам важно знать, кто из гостей сможет разделить с нами этот день, и учесть ваши вкусы.</p>
+            </div>
+            <div class="custom-form fade-up" id="customFormContainer">
+                <form id="rsvpForm" action="https://formspree.io/f/mvoevvkp" method="POST">
+                    <!-- Замените action на ваш личный Formspree endpoint -->
+                    <input type="hidden" name="_subject" value="Новое RSVP со свадьбы">
+                    <!-- Поле Имя -->
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Ваше имя и фамилия *</label>
+                        <input type="text" name="name" id="guestName" required placeholder="Например: Иванов Иван">
+                    </div>
+                    <!-- Предпочтения в еде -->
+                    <div class="form-group">
+                        <label><i class="fas fa-utensils"></i> Предпочтения в еде (аллергии, диеты, любимые блюда)</label>
+                        <textarea name="food_preferences" id="foodPref" rows="2" placeholder="Например: вегетарианское, без орехов, не ем рыбу..."></textarea>
+                    </div>
+                    <!-- Предпочтения в алкоголе -->
+                    <div class="form-group">
+                        <label><i class="fas fa-wine-bottle"></i> Предпочтения в алкоголе</label>
+                        <textarea name="alcohol_preferences" id="alcoholPref" rows="2" placeholder="Что любите? Вино, шампанское, коктейли? Или некрепкие напитки?"></textarea>
+                    </div>
+                    <!-- Песня для плейлиста -->
+                    <div class="form-group">
+                        <label><i class="fas fa-headphones"></i> Песня, которую вы хотели бы добавить в свадебный плейлист</label>
+                        <input type="text" name="song_request" id="songRequest" placeholder="Исполнитель — Название песни">
+                    </div>
+                    <!-- Дополнительные пожелания -->
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> Ваши пожелания или важная информация для нас</label>
+                        <textarea name="extra_wishes" id="extraWishes" rows="2" placeholder="Напишите всё, что считаете нужным :)"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit"><i class="fas fa-paper-plane"></i> Отправить</button>
+                    <div id="formResult" class="form-message"></div>
+                </form>
+                <p style="font-size: 0.75rem; margin-top: 20px;">После отправки мы подтвердим получение. Спасибо, что будете с нами!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Дарья & Андрей · 26.06.2026</p>
+            <p>С нетерпением ждём встречи!</p>
+            <div style="margin-top: 18px;">#Love</div>
+        </div>
+    </footer>
+
+    <!-- Музыкальный плеер (фоновая музыка) -->
+    <div class="music-player" id="musicPlayer">
+        <button class="music-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>
+        <div class="music-text"></div>
+    </div>
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/AJwWPDdBpk6UvA" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Анимация при скролле
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Плавный скролл к форме
+        const rsvpBtn = document.getElementById('rsvpScrollBtn');
+        const scrollDown = document.getElementById('scrollDown');
+        const rsvpSection = document.getElementById('rsvp');
+        function scrollToForm() {
+            rsvpSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        if (rsvpBtn) rsvpBtn.addEventListener('click', scrollToForm);
+        if (scrollDown) scrollDown.addEventListener('click', scrollToForm);
+
+        // Отправка формы через Formspree (без почты и количества гостей)
+        const form = document.getElementById('rsvpForm');
+        const resultDiv = document.getElementById('formResult');
+        // Если вы хотите получать ответы на свою почту, замените ссылку ниже на вашу с formspree.io
+        form.action = "https://formspree.io/f/your-email-endpoint"; // ЗАМЕНИТЕ НА ВАШ endpoint
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            resultDiv.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
+            resultDiv.style.color = '#b29182';
+            const formData = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    resultDiv.innerHTML = '<i class="fas fa-check-circle"></i> Спасибо! Мы получили ваши пожелания и будем рады видеть вас на свадьбе.';
+                    resultDiv.style.color = '#6b8c6e';
+                    form.reset();
+                } else {
+                    resultDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Ошибка при отправке. Попробуйте позже или свяжитесь с нами напрямую.';
+                    resultDiv.style.color = '#c17a6e';
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<i class="fas fa-wifi"></i> Ошибка сети. Пожалуйста, проверьте соединение.';
+                resultDiv.style.color = '#c17a6e';
+            }
+            setTimeout(() => {
+                if (resultDiv.innerHTML.includes('Спасибо') || resultDiv.innerHTML.includes('Ошибка')) {
+                    setTimeout(() => resultDiv.innerHTML = '', 5000);
+                }
+            }, 5000);
+        });
+
+        // Музыка
+        const audio = document.getElementById('bgMusic');
+        const playBtn = document.getElementById('playPauseBtn');
+        let isPlaying = false;
+        // Можно заменить ссылку на свою (например, с Яндекс.Диска через генератор прямой ссылки)
+        audio.src = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/AJwWPDdBpk6UvA";
+
+        playBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                audio.play().catch(err => console.log("Автовоспроизведение заблокировано"));
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Попытка авто-воспроизведения при первом касании (для мобильных)
+        document.body.addEventListener('touchstart', function once() {
+            if (!isPlaying && audio.paused) {
+                audio.play().then(() => {
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    isPlaying = true;
+                }).catch(() => {});
+            }
+            document.body.removeEventListener('touchstart', once);
+        }, { once: true });
+        document.addEventListener('click', function initAudio() {
+            if (!isPlaying && audio.paused) {
+                audio.play().then(() => {
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    isPlaying = true;
+                }).catch(() => {});
+                document.removeEventListener('click', initAudio);
+            }
+        }, { once: true });
+    </script>
+    <!-- 
+        ИНСТРУКЦИЯ ПО НАСТРОЙКЕ:
+        1. ЗАМЕНИТЕ ФОТО: в теге <img class="hero-bg-img" ... src="..." вставьте прямую ссылку на ваше фото (можно загрузить на ImgBB и скопировать "прямую ссылку").
+        2. ЗАМЕНИТЕ МУЗЫКУ: в audio.src укажите прямую ссылку на ваш MP3 (с Яндекс.Диска через генератор getfile.dokpub.com или на clyp.it).
+        3. ДЛЯ ФОРМЫ: замените form.action на ваш личный Formspree endpoint (получить на formspree.io). Тогда все ответы с предпочтениями, песнями придут вам на почту.
+        4. Чтобы сайт работал в Telegram: используйте хостинг (tiiny.host) или отправляйте файл как документ и открывайте в браузере.
+        5. Цветовая гамма и шрифты уже нежные, бежевые. Наслаждайтесь!
+    -->
+</body>
+</html>
